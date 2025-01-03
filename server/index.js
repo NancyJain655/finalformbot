@@ -15,7 +15,7 @@ dotenv.config();
 
 const allowedOrigins = [
     'https://finalformbot.vercel.app', // Frontend on Vercel
-    'http://localhost:3000',          // Local development
+      
   ];
   
   app.use(cors({
