@@ -12,8 +12,23 @@ const errorHandler = require('./src/middlewares/errorHandler');
 
 const app = express();
 dotenv.config();
+const allowedOrigins = [
+    'https://finalformbot.vercel.app/', // Vercel domain
+    //'http://localhost:1000',           // Local development
+  ];
 
-app.use(cors());
+app.use(cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (e.g., mobile apps or Postman)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+        return callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true, // Allow cookies and credentials if needed
+  }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
