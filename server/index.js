@@ -17,17 +17,19 @@ const allowedOrigins = [
     //'http://localhost:1000',           // Local development
   ];
 
-app.use(cors({
+  app.use(cors({
     origin: function (origin, callback) {
-      // Allow requests with no origin (e.g., mobile apps or Postman)
-      if (!origin) return callback(null, true);
+      // Allow requests from any origin (you may want to restrict this to specific domains)
+      if (!origin) return callback(null, true); // Allows requests from Postman or other tools without origins
       if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
+        return callback(null, true); // Allow the request
       } else {
-        return callback(new Error('Not allowed by CORS'));
+        return callback(new Error('Not allowed by CORS')); // Block the request
       }
     },
-    credentials: true, // Allow cookies and credentials if needed
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Specify allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'],  // Specify allowed headers
+    credentials: true,  // If you use cookies or authentication tokens
   }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
