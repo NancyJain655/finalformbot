@@ -1,0 +1,178 @@
+.navbar.light {
+    --background-color: #fff;
+    --text-color: #000;
+    --navinput-bg: #fff;
+}
+
+.navbar.dark {
+    --background-color: #333;
+    --text-color: #fff;
+    --navinput-bg: #37373E;
+}
+
+.navbar {
+    position: fixed;
+    
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    background: #18181B;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.navbar input {
+    padding: 5px 10px !important;
+    border: none !important;
+    border-radius: 5px !important;
+    background: #37373E !important;
+}
+
+.formNav,
+.formAction {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.formNav {
+    margin-left: 150px;
+}
+
+.formNav a,
+.formAction a {
+    color: #fff;
+    display: flex;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.formNav .active {
+    border: 1px solid #7EA6FF;
+    color: #7EA6FF;
+}
+
+.sideNav {
+    display: flex;
+}
+.formAction {
+    gap: 15px;
+}
+
+.formAction button {
+    padding: 5px 20px;
+    font-weight: normal;
+    display: flex;
+}
+
+.formAction button:disabled {
+    background: #848890;
+}
+
+.formAction button:nth-child(2) {
+    background: #4ADE80CC;
+}
+/* Container for the theme toggle */
+.themeToggle {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Adjust spacing before 'Share' button */
+}
+
+/* Label container for Light and Dark */
+.themeLabel {
+    display: flex;
+    justify-content: space-between;
+    width: 120px; /* Adjust the width to space out the labels */
+    font-size: 12px;
+    align-items: center;
+    
+
+}
+
+/* Left label for Light mode */
+.lightLabel {
+    color: var(--text-color);
+    text-align: left;
+}
+
+/* Right label for Dark mode */
+.darkLabel {
+    color: var(--text-color);
+    text-align: right;
+}
+
+/* The switch container (toggle) */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 100px; /* Width of the slider */
+    height: 25px; /* Height of the slider */
+    margin: 0 10px; /* Space between the slider and labels */
+}
+
+/* Hide the default checkbox appearance */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider itself */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: grey;
+    transition: 0.4s;
+    border-radius: 30px;
+}
+
+/* The slider circle */
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 4px;
+    
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+/* When the checkbox is checked (dark mode) */
+input:checked + .slider {
+    background-color: blue;
+}
+
+/* When the checkbox is checked, move the circle to the right */
+input:checked + .slider::before {
+    transform: translateX(22px);
+}
+
+/* Additional styles when in light mode */
+.lightToggle {
+    background-color: grey; /* Light mode background color */
+}
+
+/* Additional styles when in dark mode */
+.darkToggle {
+    background-color: blue; /* Dark mode background color */
+}
+.navbar.light {
+    background-color: #fff;
+    color: #000;
+}
+
+.navbar.dark {
+    background-color: #181818;
+    color: #fff;
+}
+
